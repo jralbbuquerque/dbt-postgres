@@ -1,0 +1,28 @@
+# Definindo o perfil chamado "dbt_postgres_tutorial"
+dbt_postgres_tutorial:  
+  # Os outputs são usados para definir configurações específicas de conexão para cada destino (target). 
+  # Cada target pode ter um ou mais outputs. Isso permite configurar diferentes conexões para diferentes 
+  # ambientes, como desenvolvimento, teste e produção. 
+  # Por exemplo, você pode ter um output para o ambiente de desenvolvimento que se conecta a um banco de dados local, 
+  # enquanto tem um output separado para o ambiente de produção que se conecta a um banco de dados na nuvem.
+  outputs:
+    # Configurando a saída específica para o target "dev"
+    dev:
+      type: postgres          # Especificando o tipo de banco de dados (PostgreSQL neste caso)
+      # Informações de conexão para o banco de dados PostgreSQL
+      host: localhost         # Substitua pelo endereço do host do seu banco de dados PostgreSQL
+      port: 5432              # Substitua pela porta do seu banco de dados PostgreSQL (geralmente 5432)
+      user: admin             # Substitua pelo nome de usuário do seu banco de dados PostgreSQL
+      password: admin         # Substitua pela senha do seu banco de dados PostgreSQL
+      database: northwind     # Substitua pelo nome do seu banco de dados PostgreSQL
+      schema: silver          # Substitua pelo esquema do seu banco de dados PostgreSQL (opcional)
+      threads: 1              # Número de threads para operações paralelas
+
+  # O target é usado para especificar qual configuração de conexão (ou destino)
+  # será usada como padrão para o perfil do projeto. Você pode ter vários destinos 
+  # configurados em seu arquivo profiles.yml, como dev, prod, test, etc. 
+  # O target especifica qual desses destinos será usado como padrão ao executar comandos dbt, 
+  # a menos que seja especificado de outra forma. Por exemplo, ao executar dbt run, 
+  # o dbt usará as configurações definidas para o target padrão, a menos que seja fornecido 
+  # um destino diferente como argumento.
+  target: dev

@@ -1,0 +1,37 @@
+# Nome do projeto, deve conter apenas caracteres minusculos e separados por unuderscore.
+name: 'dbt_postgres_tutorial'
+
+# Versão do projeto.
+version: '1.0.0'
+
+# Versão do dbt utilizado no projeto.
+config-version: 2
+
+# Define o profile a ser utilizado.
+profile: 'dbt_postgres_tutorial'
+
+# Define os diretõrios
+model-paths: ["models"]       # Diretórios com os models. Pode ser mais de um diretório, ex: models/core, models/sales, etc
+analysis-paths: ["analyses"]  # Diretórios de analysis
+test-paths: ["tests"]         # Diretórios com os tests
+seed-paths: ["seeds"]         # Diretórios com os seeds
+macro-paths: ["macros"]       # Diretórios com os macros
+snapshot-paths: ["snapshots"] # Diretório com os snapshots
+
+# Arquivo YAML que define variáveis de ambiente a serem utilizadas no projeto
+#vars:
+  # Referenciando o arquivo de variáveis
+  #var_files:
+  #  - vars.yml
+
+# Diretórios que serão limpados quando rodar o dbt clean
+clean-targets:
+  - "target"
+  - "dbt_packages"
+
+
+models:
+  dbt_postgres_tutorial:
+    # Config indicated by + and applies to all files under models/example/
+    example:
+      +materialized: view

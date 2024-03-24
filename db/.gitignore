@@ -1,0 +1,4 @@
+database/pgadmin/*
+database/postgres/*
+.ipynb_checkpoints/
+__pycache__/
