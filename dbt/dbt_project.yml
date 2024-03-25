@@ -31,6 +31,8 @@ clean-targets:
 
 
 models:
+  pre-hook: "{{ logging.log_model_start_event() }}"
+  post-hook: "{{ logging.log_model_end_event() }}"
   dbt_postgres_tutorial:
     # Config indicated by + and applies to all files under models/example/
     example:
