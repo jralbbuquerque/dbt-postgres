@@ -18,11 +18,13 @@ seed-paths: ["seeds"]         # Diretórios com os seeds
 macro-paths: ["macros"]       # Diretórios com os macros
 snapshot-paths: ["snapshots"] # Diretório com os snapshots
 
-# Arquivo YAML que define variáveis de ambiente a serem utilizadas no projeto
-#vars:
+# Define as variáveis utilizadas no modelo, ou o arquivo YAML com todas as variáveis
+vars:
+  # Refereciando variáveis
+  category: Seafood
   # Referenciando o arquivo de variáveis
-  #var_files:
-  #  - vars.yml
+  # var_files:
+  #   - vars.yml
 
 # Diretórios que serão limpados quando rodar o dbt clean
 clean-targets:
